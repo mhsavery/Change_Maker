@@ -6,14 +6,14 @@ int makeChange(int amount, int denominations[], int size, int a[], int b[]){
     
 	a[0] = 0;
 	//Calculates the total number of coins
-    for(int x = 1; x <= amount; x++) {
+	for(int x = 1; x <= amount; x++) {
 		a[x] = 1000;
 		
 		for(int y = 0; y < size; y++) {
-	    	if(x >= denominations[y] && 1 + a[x-denominations[y]] < a[x] ) {
+	    		if(x >= denominations[y] && 1 + a[x-denominations[y]] < a[x] ) {
 				a[x] = 1 + a[x-denominations[y]];
 				b[x] = y;
-	    	}
+	    		}
 		}
 	}
 	return a[amount];
